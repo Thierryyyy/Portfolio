@@ -831,7 +831,7 @@ a {
 
 /* ========== CONTACT ========== */
 .contact-content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -844,15 +844,15 @@ a {
 
 .contact-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
 .contact-card {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -865,8 +865,8 @@ a {
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1767,5 +1767,89 @@ a {
         position: static;
         display: inline-flex;
         animation: none;
+    }
+}
+
+/* ========== HERO CTA BUTTONS ========== */
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem; /* Réduit l'espace pour le bouton CV */
+}
+
+/* ========== CV BUTTON ========== */
+.hero-cv {
+    width: 100%;
+}
+
+.btn-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 255, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-cv:hover::before {
+    left: 100%;
+}
+
+.btn-cv svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-cv:hover {
+    border-color: var(--primary);
+    background: rgba(212, 255, 0, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(212, 255, 0, 0.2);
+}
+
+.btn-cv:hover svg {
+    transform: translateY(3px);
+    color: var(--primary);
+}
+
+.btn-cv:active {
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-cv {
+        margin-top: 0.5rem;
     }
 }
